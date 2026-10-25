@@ -1,0 +1,120 @@
+{
+  "texturedPlanetAssets": [
+    {
+      "filename": "mercury.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_mercury.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "composite artistically enhanced"
+    },
+    {
+      "filename": "venus-surface.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_venus_surface.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "radar based stylized surface; not visible at altitude"
+    },
+    {
+      "filename": "venus-atmosphere.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "atmospheric appearance modeled"
+    },
+    {
+      "filename": "earth.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_earth_daymap.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "composite terrain and color"
+    },
+    {
+      "filename": "earth-night.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "composite night lights"
+    },
+    {
+      "filename": "earth-clouds.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_earth_clouds.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "modeled cloud coverage"
+    },
+    {
+      "filename": "moon.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_moon.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "composite lunar imagery"
+    },
+    {
+      "filename": "mars.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_mars.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "composite Mars imagery"
+    },
+    {
+      "filename": "jupiter.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_jupiter.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "clouds change over time"
+    },
+    {
+      "filename": "saturn.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_saturn.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "clouds change over time"
+    },
+    {
+      "filename": "saturn-ring-alpha.png",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "rings transparency, check orientation"
+    },
+    {
+      "filename": "uranus.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_uranus.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "illustrative colors"
+    },
+    {
+      "filename": "neptune.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_neptune.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "illustrative colors"
+    },
+    {
+      "filename": "sun.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_sun.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "decorative solar map"
+    },
+    {
+      "filename": "starfield.jpg",
+      "url": "https://edu.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg",
+      "credit": "Solar System Scope",
+      "license": "CC BY 4.0",
+      "accuracyNotes": "star background"
+    },
+    {
+      "filename": "europa.jpg",
+      "url": "https://maps.jpl.nasa.gov/tmaps/pix/jup2vss2.jpg",
+      "credit": "NASA/JPL/USGS",
+      "license": "NASA media guidelines",
+      "accuracyNotes": "Voyager grayscale mosaic; can be visually enhanced, label if so"
+    }
+  ],
+  "licenseSource": "https://edu.solarsystemscope.com/textures/",
+  "nasaSource": "https://maps.jpl.nasa.gov/tmaps/",
+  "nasaMediaGuidelines": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "instructions": "These are links to download on the developers machine. Files are not included in the ZIP and require an internet connection. Verify original licensing and retain an attribution page."
+}

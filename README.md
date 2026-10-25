@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cosmic Playground — kit pour Antigravity
 
-## Getting Started
+## Contenu réellement fourni
+- `reference/CAPTURE_ORIGINALE.png` : la capture de l'utilisateur, référence principale de composition. À **ne pas** afficher à la place d'un site interactif.
+- `reference/planche-direction-artistique.webp`, `reference/planche-elements.webp` : inspirations générées ; certains textes et chiffres dans ces planches peuvent être inexacts.
+- `public/assets/scenes/hub-orbital.webp` : décor orbital **sans boutons**.
+- `public/assets/scenes/laboratoire-mars.webp` : décor du laboratoire martien.
+- `public/assets/scenes/panorama-mars.webp` : paysage martien **artistique**.
+- `public/assets/scenes/panorama-europa.webp` : vue d'Europe et Jupiter, **artistique**.
+- `docs/PROMPTS_ANTIGRAVITY.md` : prompts à copier successivement, en gardant une seule conversation d'agent et un projet.
+- `docs/ASSETS_MANIFEST.json` : inventaire et conseils d'intégration.
+- `docs/destinations.catalogue.json` : liste de destinations et des niveaux de simulation ; ce n'est pas encore un jeu de données scientifiques certifiées.
+- `APERCU_DU_KIT.jpg` : aperçu des cinq décors fournis.
 
-First, run the development server:
+## Installation
+1. Créer un projet Next.js TypeScript avec Tailwind.
+2. Copier le dossier `public/assets/scenes` dans le `public/` du projet.
+3. Copier `reference/` à la racine du projet (hors public si possible).
+4. Ajouter les instructions de `docs/PROMPTS_ANTIGRAVITY.md` à Antigravity **une phase à la fois**.
+5. Faire vérifier l'interface dans un navigateur sur 1734×478 ou un ratio similaire, ainsi que 1440×900 et 390×844.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Limitations explicites
+Aucun fichier GLB n'a été fabriqué. Les textures des planètes n'ont pas été téléchargées dans ce ZIP. Les images générées ne sont pas des relevés scientifiques exacts : elles sont destinées à l'identité visuelle, aux arrière-plans et aux maquettes. La NASA n'a pas participé à la création de ces images.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Sources pour assets 3D et textures réelles
+- NASA 3D Resources : https://science.nasa.gov/3d-resources/
+- JPL planetary texture maps : https://space.jpl.nasa.gov/tmaps/
+- NASA Media guidelines : https://www.nasa.gov/nasa-brand-center/images-and-media/
+- JPL Horizons : https://ssd-api.jpl.nasa.gov/doc/horizons.html
+- NASA exoplanet archive : https://exoplanetarchive.ipac.caltech.edu/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Note : certaines anciennes cartes JPL sont explicitement fictives ou composites. Lire la légende et conserver les crédits source de chaque carte.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Complément :** `public/assets/scenes/panorama-titan.webp` (vue artistique de Titan, Saturne sur-visible), `scripts/telecharger-textures.mjs`, `docs/TEXTURES_SOURCES.json` et `DEMARRER_ICI.md`. Les cartes planétaires ne sont **pas** dans le ZIP et sont récupérées par ce script sur le PC de développement, sous réserve de la connexion et de la disponibilité des sources.

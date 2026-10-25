@@ -1,0 +1,75 @@
+{
+  "project": "Cosmic Playground",
+  "assets": [
+    {
+      "path": "/assets/scenes/hub-orbital.webp",
+      "type": "concept_art_background",
+      "scientificAccuracy": "artistic illustration; do not treat as real planetary observation",
+      "use": "Hub: environmental background / loading fallback"
+    },
+    {
+      "path": "/assets/scenes/laboratoire-mars.webp",
+      "type": "concept_art_background",
+      "scientificAccuracy": "artistic illustration; do not treat as real planetary observation",
+      "use": "Mars laboratory: artistic background"
+    },
+    {
+      "path": "/assets/scenes/panorama-mars.webp",
+      "type": "concept_art_background",
+      "scientificAccuracy": "artistic illustration; do not treat as real planetary observation",
+      "use": "Mars panorama: scene backdrop"
+    },
+    {
+      "path": "/assets/scenes/panorama-europa.webp",
+      "type": "concept_art_background",
+      "scientificAccuracy": "artistic illustration; do not treat as real planetary observation",
+      "use": "Europa panorama: artistic backdrop"
+    },
+    {
+      "path": "/assets/scenes/panorama-titan.webp",
+      "type": "concept_art_background",
+      "scientificAccuracy": "artistic illustration with exaggerated Saturn visibility through Titan atmosphere; not observational imagery",
+      "use": "Titan arrival artistic landscape, label as illustrative"
+    }
+  ],
+  "references": [
+    "reference/CAPTURE_ORIGINALE.png",
+    "reference/planche-direction-artistique.webp",
+    "reference/planche-elements.webp",
+    "reference/planche-scènes-ui.webp",
+    "reference/planche-parcours-utilisateur.webp",
+    "reference/planche-navigation-et-composants.webp"
+  ],
+  "notIncluded": [
+    "GLB models",
+    "local pre-downloaded planetary textures (use script to download)",
+    "Astronaut animations",
+    "Sound effects"
+  ],
+  "source_links": {
+    "NASA_3D": "https://science.nasa.gov/3d-resources/",
+    "NASA_JPL_textures": "https://space.jpl.nasa.gov/tmaps/",
+    "NASA_media_policy": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "NASA_exoplanet_archive": "https://exoplanetarchive.ipac.caltech.edu/",
+    "JPL_horizons": "https://ssd-api.jpl.nasa.gov/doc/horizons.html"
+  },
+  "design": {
+    "colors": {
+      "background": "#030812",
+      "panel": "#071626",
+      "electricBlue": "#32A8FF",
+      "icyBlue": "#99DCFF",
+      "amber": "#F3A451",
+      "text": "#E7F2FF"
+    },
+    "fontPreferences": [
+      "Space Grotesk",
+      "Inter"
+    ],
+    "primaryWidth": "desktop 1440-1920px",
+    "targetScreenshotAspectRatio": 3.6276150627615062,
+    "mobile": "responsive reposition, horizontal body carousel, no fixed overlap"
+  },
+  "textureDownloadScript": "scripts/telecharger-textures.mjs",
+  "textureSourceCatalog": "docs/TEXTURES_SOURCES.json"
+}
