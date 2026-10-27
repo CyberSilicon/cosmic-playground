@@ -4,6 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'photojournal.jpl.nasa.gov',
+        port: '',
+        pathname: '/jpeg/**',
+      },
+    ],
+  },
   turbopack: {
     rules: {
       "*.css": {
