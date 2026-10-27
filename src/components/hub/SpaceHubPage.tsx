@@ -18,7 +18,7 @@ export function SpaceHubPage() {
   const [isSelectorOpen, setIsSelectorOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [travelingDestination, setTravelingDestination] = useState<Destination | null>(null);
-  const [currentNavTab, setCurrentNavTab] = useState<'solar-system' | 'explore' | 'experiments'>('solar-system');
+  const [currentNavTab, setCurrentNavTab] = useState<'solar-system' | 'explore'>('solar-system');
   const [reducedMotion, setReducedMotion] = useState(false);
 
   // Check prefers-reduced-motion media query and optional URL query state on mount
@@ -43,20 +43,12 @@ export function SpaceHubPage() {
     }
   }, []);
 
-  const handleSelectTab = (tab: 'solar-system' | 'explore' | 'experiments') => {
+  const handleSelectTab = (tab: 'solar-system' | 'explore') => {
     setCurrentNavTab(tab);
     if (tab === 'solar-system') {
       setSelectedDestination(null);
     } else if (tab === 'explore') {
       setIsSelectorOpen(true);
-    } else if (tab === 'experiments') {
-      // If Mars is already selected, launch directly; otherwise select Mars to show its info card
-      const mars = ALL_DESTINATIONS.find((d) => d.id === 'mars') || MAIN_DESTINATIONS[0];
-      if (selectedDestination?.id === 'mars') {
-        handleStartTravel(mars);
-      } else {
-        setSelectedDestination(mars);
-      }
     }
   };
 

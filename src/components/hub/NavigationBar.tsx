@@ -4,8 +4,8 @@ import React from 'react';
 import { User, Eye } from 'lucide-react';
 
 interface NavigationBarProps {
-  currentTab: 'solar-system' | 'explore' | 'experiments';
-  onSelectTab: (tab: 'solar-system' | 'explore' | 'experiments') => void;
+  currentTab: 'solar-system' | 'explore';
+  onSelectTab: (tab: 'solar-system' | 'explore') => void;
   onOpenProfile: () => void;
   reducedMotion: boolean;
   onToggleReducedMotion: () => void;
@@ -68,23 +68,6 @@ export function NavigationBar({
         >
           <span>EXPLORER</span>
           {currentTab === 'explore' && (
-            <span className="absolute bottom-0 left-0.5 right-0.5 md:left-2 md:right-2 h-[2px] bg-cyan-400 rounded-full shadow-[0_0_6px_rgba(6,182,212,1)]" />
-          )}
-        </button>
-
-        <span className="text-slate-600 select-none">|</span>
-
-        <button
-          type="button"
-          onClick={() => onSelectTab('experiments')}
-          className={`relative px-1 sm:px-2 py-0.5 md:py-1 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 whitespace-nowrap ${
-            currentTab === 'experiments'
-              ? 'text-cyan-300 drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]'
-              : 'hover:text-white'
-          }`}
-        >
-          <span>EXPÉRIENCES</span>
-          {currentTab === 'experiments' && (
             <span className="absolute bottom-0 left-0.5 right-0.5 md:left-2 md:right-2 h-[2px] bg-cyan-400 rounded-full shadow-[0_0_6px_rgba(6,182,212,1)]" />
           )}
         </button>
