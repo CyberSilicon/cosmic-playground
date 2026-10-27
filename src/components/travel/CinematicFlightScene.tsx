@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useRef, useMemo, useEffect } from 'react';
+import React, { useRef, useMemo, useEffect, useState } from 'react';
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import gsap from 'gsap';
 import { Destination } from '@/data/destinations';
@@ -35,6 +36,17 @@ function SpaceshipMesh({
   accentColor: string;
 }) {
   const ringPulseRef = useRef<THREE.Mesh>(null);
+  const [shipModel, setShipModel] = useState<THREE.Group | null>(null);
+  useEffect(() => {
+    let alive = true;
+    // Real PBR ship asset is optional; a missing file never crashes the flight.
+    const loader = new GLTFLoader();
+    loader.load('/assets/models/ship.glb', (gltf) => {
+      if (alive) setShipModel(gltf.scene);
+      else gltf.scene.traverse((obj) => { if (obj instanceof THREE.Mesh) obj.geometry?.dispose(); });
+    }, undefined, () => { /* Keep the existing procedural fallback */ });
+    return () => { alive = false; };
+  }, []);
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
@@ -50,16 +62,17 @@ function SpaceshipMesh({
 
   return (
     <group ref={shipRef} scale={[0.28, 0.28, 0.28]}>
-      <group rotation={[0, Math.PI, 0]}>
+      {shipModel && <primitive object={shipModel} rotation={[0, Math.PI, 0]} />}
+      <group rotation={[0, Math.PI, 0]} visible={!shipModel}>
         {/* Main Fuselage Hull */}
         <mesh position={[0, 0, 0.2]} rotation={[Math.PI / 2, 0, 0]}>
-          <coneGeometry args={[0.38, 2.2, 8]} />
+          <coneGeometry args={[0.38, 2.2, 48]} />
           <meshStandardMaterial color="#e2e8f0" metalness={0.75} roughness={0.25} />
         </mesh>
 
         {/* Rear Engine Housing */}
         <mesh position={[0, 0, -0.95]} rotation={[Math.PI / 2, 0, 0]}>
-          <cylinderGeometry args={[0.42, 0.34, 0.65, 12]} />
+          <cylinderGeometry args={[0.42, 0.34, 0.65, 48]} />
           <meshStandardMaterial color="#1e293b" metalness={0.85} roughness={0.3} />
         </mesh>
 

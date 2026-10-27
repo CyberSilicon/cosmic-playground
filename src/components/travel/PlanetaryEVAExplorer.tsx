@@ -70,6 +70,8 @@ function AstronautRig({
   meta,
   reducedMotion,
   terrainGeo,
+  terrainSize,
+  terrainSegments,
   joystickRef,
   cameraYawRef,
   cameraPitchRef,
@@ -88,6 +90,8 @@ function AstronautRig({
   meta: { label: string; g: number; color: string };
   reducedMotion: boolean;
   terrainGeo: THREE.PlaneGeometry;
+  terrainSize: number;
+  terrainSegments: number;
   joystickRef: React.MutableRefObject<{ x: number; y: number }>;
 }) {
   const groupRef = useRef<THREE.Group>(null);
@@ -99,8 +103,9 @@ function AstronautRig({
   const rightLegRef = useRef<THREE.Group>(null);
   const walkRef = useRef(0);
   const timeRef = useRef(0);
-  const size = 60;
-  const segments = 40;
+  // Use the actual dimensions of the generated terrain for ground collision.
+  const size = terrainSize;
+  const segments = terrainSegments;
   const { camera } = useThree();
   useFrame((state, delta) => {
     timeRef.current = state.clock.elapsedTime;
@@ -108,7 +113,7 @@ function AstronautRig({
     const g = meta.g;
     const jumpForce = 3.4;
     const groundFriction = 0.82;
-    const groundY = getHeightFromGeo(terrainGeo, posRef.current.x, posRef.current.z, size, segments);
+    // Ground is sampled AFTER horizontal movement to avoid entering an uphill slope.
 
     let moveX = (keys.right ? 1 : 0) - (keys.left ? 1 : 0) + joystickRef.current.x;
     let moveZ = (keys.forward ? 1 : 0) - (keys.backward ? 1 : 0) + joystickRef.current.y;
@@ -153,6 +158,7 @@ function AstronautRig({
     const bound = size / 2 - 3;
     posRef.current.x = THREE.MathUtils.clamp(posRef.current.x + nvx * dt, -bound, bound);
     posRef.current.z = THREE.MathUtils.clamp(posRef.current.z + nvz * dt, -bound, bound);
+    const groundY = getHeightFromGeo(terrainGeo, posRef.current.x, posRef.current.z, size, segments);
     posRef.current.y += velRef.current.y * dt;
 
     velRef.current.x = nvx;
@@ -343,8 +349,8 @@ function AstronautRig({
 
 function getHeightFromGeo(geometry: THREE.PlaneGeometry, x: number, z: number, size: number, segments: number): number {
   const positions = geometry.attributes.position;
-  const fx = ((x / size) + 0.5) * segments;
-  const fz = ((z / size) + 0.5) * segments;
+  const fx = THREE.MathUtils.clamp(((x / size) + 0.5) * segments, 0, segments);
+  const fz = THREE.MathUtils.clamp(((z / size) + 0.5) * segments, 0, segments);
   const x0 = Math.floor(fx);
   const z0 = Math.floor(fz);
   const x1 = Math.min(x0 + 1, segments);
@@ -725,8 +731,8 @@ export function PlanetaryEVAExplorer({ destination, onReturn, reducedMotion }: P
             shadow-bias={-0.0004}
           />
           <directionalLight position={[-14, 9, -12]} intensity={0.65} color="#7dd3fc" />
-          <fog attach="fog" args={['#08101f', 45, 95]} />
-          <color attach="background" args={['#020617']} />
+          <fog attach="fog" args={[destination.id === 'mars' ? '#a06b53' : destination.id === 'moon' ? '#090d15' : '#172331', 48, 115]} />
+          <color attach="background" args={[destination.id === 'mars' ? '#9f6549' : '#020617']} />
 
           <TerrainMesh geometry={terrainGeo} texture={texture} />
 
@@ -775,6 +781,8 @@ export function PlanetaryEVAExplorer({ destination, onReturn, reducedMotion }: P
             meta={meta}
             reducedMotion={reducedMotion}
             terrainGeo={terrainGeo}
+            terrainSize={size}
+            terrainSegments={segments}
             joystickRef={joystickRef}
             cameraYawRef={cameraYaw}
             cameraPitchRef={cameraPitch}

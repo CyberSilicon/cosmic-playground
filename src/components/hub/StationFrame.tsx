@@ -26,16 +26,7 @@ export function StationFrame({ children }: StationFrameProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/30 pointer-events-none" />
       </div>
 
-      {/* Astronaut Character on Foreground Deck observing the cosmos */}
-      <div className="absolute left-[16.5%] bottom-0 z-10 pointer-events-none h-[66%] max-h-[500px] w-auto aspect-[140/318]">
-        <Image
-          src="/assets/scenes/astronaut_suit.png"
-          alt="Astronaute observant le cosmos depuis la baie vitrée"
-          fill
-          priority
-          className="object-contain object-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)]"
-        />
-      </div>
+      {/* No flat astronaut cutout: preserve clean cinematic station until a licensed PBR GLB model is available. */}
 
       {/* Futuristic Station Metal Column Typography (Left Edge) */}
       <div className="absolute left-6 md:left-9 top-[27%] z-20 pointer-events-none hidden sm:flex flex-col items-start tracking-[0.3em] text-[10px] md:text-xs font-semibold text-slate-300/85 drop-shadow-[0_0_12px_rgba(255,255,255,0.45)]">

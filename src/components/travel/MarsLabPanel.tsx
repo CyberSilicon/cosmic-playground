@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { MarsPhotoExplorer } from './MarsPhotoExplorer';
 import {
   FlaskConical,
   Atom,
@@ -22,7 +23,7 @@ interface MarsLabPanelProps {
   reducedMotion: boolean;
 }
 
-type LabTab = 'gravity' | 'rock' | 'oxygen' | 'eva';
+type LabTab = 'gravity' | 'rock' | 'oxygen' | 'eva' | 'photos';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -246,7 +247,7 @@ function RockExperiment() {
                 : 'border-white/10 bg-slate-900/50 hover:border-cyan-500/30'
             }`}
           >
-            <span className="text-3xl" aria-hidden="true">{rock.emoji}</span>
+            <Layers className="h-7 w-7 text-orange-300" aria-hidden="true" />
             <span className="text-[11px] font-semibold text-slate-200 leading-tight">{rock.name}</span>
             <span className="text-[9px] text-slate-500">{rock.missions}</span>
           </button>
@@ -256,7 +257,7 @@ function RockExperiment() {
       {selectedSample ? (
         <div className="rounded-xl border border-cyan-500/20 bg-slate-900/60 p-5 flex flex-col gap-3">
           <div className="flex items-center gap-3">
-            <span className="text-4xl" aria-hidden="true">{selectedSample.emoji}</span>
+            <Layers className="h-9 w-9 text-orange-300" aria-hidden="true" />
             <div>
               <h5 className="text-sm font-bold text-white">{selectedSample.name}</h5>
               <p className="text-[10px] font-mono text-cyan-400">{selectedSample.missions}</p>
@@ -420,6 +421,7 @@ export function MarsLabPanel({ destination, reducedMotion }: MarsLabPanelProps) 
     { id: 'rock', label: 'Roches', icon: <Layers className="w-3.5 h-3.5" /> },
     { id: 'oxygen', label: 'MOXIE O₂', icon: <Wind className="w-3.5 h-3.5" /> },
     { id: 'eva', label: 'Exploration 3D', icon: <Footprints className="w-3.5 h-3.5" /> },
+    { id: 'photos', label: 'Photos NASA', icon: <Layers className="w-3.5 h-3.5" /> },
   ];
 
   return (
@@ -487,6 +489,7 @@ export function MarsLabPanel({ destination, reducedMotion }: MarsLabPanelProps) 
             {labTab === 'gravity' && <GravityExperiment destination={destination} />}
             {labTab === 'rock' && <RockExperiment />}
             {labTab === 'oxygen' && <OxygenExperiment />}
+            {labTab === 'photos' && <MarsPhotoExplorer />}
           </>
         )}
       </div>

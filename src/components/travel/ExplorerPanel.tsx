@@ -227,7 +227,7 @@ export function ExplorerPanel({ destination, reducedMotion }: ExplorerPanelProps
   const [selectedPoi, setSelectedPoi] = useState<PointOfInterest | null>(null);
 
   const pois = POI_DATA[destination.id] || null;
-  const sceneBg = PANORAMA_MAP[destination.id] || '/assets/scenes/panorama-mars.webp';
+  const sceneBg = PANORAMA_MAP[destination.id] || null;
   const panoramaLabel = PANORAMA_LABELS[destination.id] || null;
 
   const isGasGiant =
@@ -236,7 +236,7 @@ export function ExplorerPanel({ destination, reducedMotion }: ExplorerPanelProps
   return (
     <div className="flex flex-col gap-6">
       {/* Panorama banner */}
-      <div className="relative w-full h-40 rounded-xl overflow-hidden">
+      {sceneBg ? <div className="relative w-full h-40 rounded-xl overflow-hidden">
         <Image
           src={sceneBg}
           alt={`Panorama de surface — ${destination.name}`}
@@ -258,7 +258,7 @@ export function ExplorerPanel({ destination, reducedMotion }: ExplorerPanelProps
         <span className="absolute bottom-3 right-4 text-[9px] text-slate-400 font-mono italic">
           Vue illustrative — non à l&apos;échelle
         </span>
-      </div>
+      </div> : <div className="relative w-full h-40 rounded-xl overflow-hidden bg-slate-950/90 flex items-center justify-center text-sm text-slate-400">Aucun panorama photographique vérifié disponible pour {destination.name}</div>}
 
       {isGasGiant ? (
         <div className="rounded-xl bg-amber-900/20 border border-amber-500/30 p-5 text-center">

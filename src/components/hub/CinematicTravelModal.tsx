@@ -68,7 +68,7 @@ export function CinematicTravelModal({ destination, onClose, reducedMotion }: Ci
               <div className="text-center">
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-cyan-400">{flightProgress.phaseLabel}</span>
                 <div className="w-48 h-1 mt-2 bg-slate-800 rounded-full overflow-hidden border border-white/10">
-                  <div className={`h-full bg-cyan-400 w-[${flightProgress.progress}%] transition-all duration-300`} />
+                  <div className="h-full bg-cyan-400 transition-[width] duration-300" style={{ width: `${flightProgress.progress}%` }} />
                 </div>
                 <span className="text-[10px] text-slate-400 font-mono mt-1">{flightProgress.speedIndicator} • {flightProgress.progress}%</span>
               </div>
